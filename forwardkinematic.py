@@ -15,7 +15,7 @@ def dh_transform(theta, d, a, alpha):
 # Define DH Parameter
 # ==============================
 
-d =     [55, 110, 0, 0, 120]
+d =     [55, 0, 0, 0, 120]
 a =     [0, 110, 60, 0, 0]
 alpha = [90, 0, 0, 90, 0]
 
@@ -45,4 +45,4 @@ print(np.round(a=T_total, decimals=2))
 #Extract the position of TCP
 tcp_Pos = T_total[:3, 3]
 print("\nPosition of TCP [x, y, z]:")
-print(tcp_Pos)
+print(np.round(a=tcp_Pos, decimals=2))
