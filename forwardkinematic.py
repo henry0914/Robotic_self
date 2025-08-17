@@ -1,7 +1,7 @@
 # 5-DOF Robot
 import numpy as np
 
-def dh_transform(a, alpha, d, theta):
+def dh_transform(theta, d, a, alpha):
     # generic link-coordination transformation matrix
     return np.array([
         [np.cos(theta), -np.sin(theta) * np.cos(alpha),  np.sin(theta) * np.sin(alpha), a * np.cos(theta)],
@@ -31,16 +31,16 @@ for i in range (5):
 # Calculate and show each transformation matrix
 T_all = []
 for i in range (5):
-    Ti = dh_transform(theta[i], d[i], a[i], alpha[i])
+    Ti = dh_transform(d= d[i], a=a[i], alpha=alpha[i], theta=theta[i])
     T_all.append(Ti)
-    print(f"\nT{i+1}: \n{Ti}")
+    print(f"\nT{i+1}: \n{np.round(a=Ti, decimals=2)}")
 
 T_total = np.eye(4)
 for Ti in T_all:
     T_total = np.dot(T_total, Ti)
 
 print("\nOverall Transformation Marix:")
-print(T_total)
+print(np.round(a=T_total, decimals=2))
 
 #Extract the position of TCP
 tcp_Pos = T_total[:3, 3]
