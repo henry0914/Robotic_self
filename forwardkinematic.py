@@ -15,7 +15,7 @@ def dh_transform(theta, d, a, alpha):
 # Define DH Parameter
 # ==============================
 
-d =     [55, 0, 0, 0, 120]
+d =     [55, 0, 0, 0, 70]
 a =     [0, 110, 60, 0, 0]
 alpha = [90, 0, 0, 90, 0]
 
