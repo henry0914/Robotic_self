@@ -31,6 +31,16 @@ for i in range (5):
 # Calculate and show each transformation matrix
 T_all = []
 for i in range (5):
+    if i==0:
+        theta[i] = theta[i]
+    if i==1:
+        theta[i]  = theta[i] + np.deg2rad(90)
+    if i==2:
+        theta[i]  = theta[i] - np.deg2rad(90)
+    if i==3:
+        theta[i]  = theta[i] + np.deg2rad(90)
+    if i==4:
+        theta[i]  = theta[i]
     Ti = dh_transform(d= d[i], a=a[i], alpha=alpha[i], theta=theta[i])
     T_all.append(Ti)
     print(f"\nT{i+1}: \n{np.round(a=Ti, decimals=2)}")
